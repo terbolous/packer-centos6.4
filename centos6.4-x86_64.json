@@ -66,6 +66,6 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": true,
-    "output": "../../{{.Provider}}/centos64.box"
+    "output": "./centos6.4_64.box"
   }]
 }
