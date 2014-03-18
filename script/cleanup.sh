@@ -1,12 +1,12 @@
 # Make sure udev doesn't block our network
 if grep -q -i "release 6" /etc/redhat-release ; then
-    rm /etc/udev/rules.d/70-persistent-net.rules
-    mkdir /etc/udev/rules.d/70-persistent-net.rules
-    rm /lib/udev/rules.d/75-persistent-net-generator.rules
+    sudo rm -rf /etc/udev/rules.d/70-persistent-net.rules
+    sudo mkdir /etc/udev/rules.d/70-persistent-net.rules
+    sudo rm -rf /lib/udev/rules.d/75-persistent-net-generator.rules
 fi
-rm -rf /dev/.udev/
-sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
+sudo rm -rf /dev/.udev/
+sudo sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
 
-yum -y clean all
+sudo yum -y clean all
 
-rm -rf /tmp/*
+sudo rm -rf /tmp/*
